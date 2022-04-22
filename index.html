@@ -40,12 +40,23 @@
           </p>
         </article>
       </Transition>
-      <input
-        v-if="showConvert"
-        type="number"
-        v-bind:class="{fadeInConvert:showConvert}"
-        placeholder="Amount"
-      />
+      <div class="convert-container">
+        <div class="results">
+          <p>{{result}}</p>
+          <p>{{pickedCountry}}</p>
+        </div>
+        <input
+          v-on:keyup="convertCur"
+          v-if="showConvert"
+          type="number"
+          v-bind:class="{fadeInConvert:showConvert}"
+          v-model="inputAmount"
+          placeholder="Amount"
+        />
+        <select name="country" v-model="pickedCountry">
+          <option v-for="country in conversionRatesArray">{{country}}</option>
+        </select>
+      </div>
     </div>
     <script src="./app.js"></script>
   </body>

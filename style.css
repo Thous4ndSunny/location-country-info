@@ -134,14 +134,14 @@ span {
 /* input */
 
 .fadeInConvert {
-  position: absolute;
+  /* position: absolute; */
   opacity: 0.5;
   animation: inConvert 2s forwards;
 }
 
 @keyframes inConvert {
   from {
-    position: absolute;
+    /* position: absolute; */
     border: none;
     border-radius: 30px;
     font-size: 1.5rem;
@@ -153,7 +153,7 @@ span {
     opacity: 0;
   }
   to {
-    position: absolute;
+    /* position: absolute; */
     border: none;
     border-radius: 30px;
     font-size: 1.5rem;
@@ -164,6 +164,18 @@ span {
     transform: scale(1);
     opacity: 0.3s;
   }
+}
+
+.convert-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+.results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

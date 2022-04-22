@@ -13,7 +13,11 @@ new Vue({
     countrySubregion: null,
     countryLanguage: null,
     /*Conversion rates */
-    conversionRatesObject: null,
+    conversionRateObject: null,
+    conversionRatesArray: null,
+    pickedCountry: "",
+    inputAmount: "",
+    result: null,
   },
   methods: {
     getStarted: function () {
@@ -74,13 +78,28 @@ new Vue({
 
     getConvValues: function () {
       fetch(
-        `https://v6.exchangerate-api.com/v6/a338f9df71740d0a64e08a2d/latest/USD`
+        `https://v6.exchangerate-api.com/v6/a338f9df71740d0a64e08a2d/latest/${this.countryCurrency}`
       )
         .then((response) => response.json())
         .then((data) => {
           console.log(data.conversion_rates);
-          this.conversionRatesObject = data.conversion_rates;
+          this.conversionRateObject = data.conversion_rates;
+          this.conversionRatesArray = Object.keys(data.conversion_rates);
+
+          console.log(this.conversionRatesArray);
+          console.log(
+            `ovo je ono kaj spremam ${this.conversionRateObject["EUR"]}`
+          );
         });
+    },
+    convertCur: function () {
+      this.result = (
+        Number(this.inputAmount) *
+        Number(this.conversionRateObject[this.pickedCountry])
+      ).toFixed(2);
+      console.log(this.conversionRateObject[this.pickedCountry]);
+      console.log(` ovo je objekt ${this.conversionRateObject}`);
+      console.log(` ovo je dryava ${this.pickedCountry}`);
     },
   },
 });
