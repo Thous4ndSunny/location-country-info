@@ -40,10 +40,11 @@
           </p>
         </article>
       </Transition>
-      <div class="convert-container">
+      <div class="convert-container" v-if="showConvert">
+        <h4>Currency at your location is: {{countryCurrency}}</h4>
         <div class="results">
-          <p>{{result}}</p>
-          <p>{{pickedCountry}}</p>
+          <p class="output-text">{{result}}</p>
+          <p class="output-text">{{pickedCountry}}</p>
         </div>
         <input
           v-on:keyup="convertCur"

@@ -15,9 +15,9 @@ new Vue({
     /*Conversion rates */
     conversionRateObject: null,
     conversionRatesArray: null,
-    pickedCountry: "",
+    pickedCountry: "-",
     inputAmount: "",
-    result: null,
+    result: "-",
   },
   methods: {
     getStarted: function () {
