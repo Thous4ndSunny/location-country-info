@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <title>CountryConverter</title>
+  </head>
+  <body>
+    <div class="vue-app container">
+      <button @click="getStarted">Where am i?</button>
+      <button @click="tryThis">RenderData</button>
+      <article v-if="show">
+        <img v-bind:src="flag" alt="" />
+
+        <h3 class="country-name">{{countryName}}</h3>
+        <h4 class="country-region">{{countryRegion}}</h4>
+        <h5 class="country-subregion">{{countrySubregion}}</h5>
+
+        <p class="country-lang">{{countryLanguage}}</p>
+        <p class="country-cur">{{countryCurrency}}</p>
+      </article>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
