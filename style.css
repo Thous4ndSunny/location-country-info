@@ -131,6 +131,44 @@ span {
 .super {
   animation: slide 0.7s linear forwards;
 }
+/* input */
+
+.fadeInConvert {
+  position: absolute;
+  opacity: 0.5;
+  animation: inConvert 2s forwards;
+}
+
+@keyframes inConvert {
+  from {
+    position: absolute;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    height: 6rem;
+    width: 20rem;
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    position: absolute;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    height: 6rem;
+    width: 20rem;
+    transform: scale(1);
+    opacity: 0.3s;
+  }
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 
 /* Transition Country */
 

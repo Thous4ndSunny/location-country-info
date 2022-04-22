@@ -40,6 +40,12 @@
           </p>
         </article>
       </Transition>
+      <input
+        v-if="showConvert"
+        type="number"
+        v-bind:class="{fadeInConvert:showConvert}"
+        placeholder="Amount"
+      />
     </div>
     <script src="./app.js"></script>
   </body>

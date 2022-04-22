@@ -2,6 +2,7 @@
 new Vue({
   el: ".vue-app",
   data: {
+    showConvert: false,
     slide: false,
     show: false,
     countryRegion: null,
@@ -11,6 +12,8 @@ new Vue({
     countryCurrency: null,
     countrySubregion: null,
     countryLanguage: null,
+    /*Conversion rates */
+    conversionRatesObject: null,
   },
   methods: {
     getStarted: function () {
@@ -64,6 +67,20 @@ new Vue({
     },
     slideMe: function () {
       this.slide = !this.slide;
+      this.showConvert = !this.showConvert;
+      this.getConvValues();
+    },
+    /*Currency conversion */
+
+    getConvValues: function () {
+      fetch(
+        `https://v6.exchangerate-api.com/v6/a338f9df71740d0a64e08a2d/latest/USD`
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data.conversion_rates);
+          this.conversionRatesObject = data.conversion_rates;
+        });
     },
   },
 });
