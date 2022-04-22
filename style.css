@@ -8,8 +8,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: lightgray;
+
   height: 100vh;
+  background: linear-gradient(lightblue, lightgreen);
 }
 
 article {
@@ -55,6 +56,16 @@ img {
 button {
   border: none;
   font-size: 3rem;
+  cursor: pointer;
+  padding: 2rem 2rem;
+  border-radius: 12px;
+  background-color: cyan;
+}
+
+button:hover {
+  color: white;
+  background-color: blue;
+  transition: 0.4s;
 }
 
 /* Data Style */
