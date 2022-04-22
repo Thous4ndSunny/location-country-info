@@ -17,19 +17,29 @@
   </head>
   <body>
     <div class="vue-app container">
+      <!-- <button @click="slideMe">da</button> -->
       <!-- <button @click="getStarted">Where am i?</button> -->
       <button @click="tryThis" v-if="!show">Where am i?</button>
-      <article v-if="show">
-        <img v-bind:src="flag" alt="" />
+      <Transition>
+        <article v-if="show" v-bind:class="{super:slide}">
+          <img v-bind:src="flag" alt="" />
 
-        <h3 class="country-name">{{countryName}}</h3>
+          <h3 class="country-name">{{countryName}}</h3>
 
-        <p class="country-lang">Region:<span>{{countryRegion}}</span></p>
-        <p class="country-lang">Subregion:<span>{{countrySubregion}}</span></p>
-        <p class="country-lang">Language:<span>{{countryLanguage}}</span></p>
-        <p class="country-cur">Currency:<span>{{countryCurrency}}</span></p>
-        <p class="country-cur">Population:<span>{{countryPopulation}}</span></p>
-      </article>
+          <p class="country-lang">Region:<span>{{countryRegion}}</span></p>
+          <p class="country-lang">
+            Subregion:<span>{{countrySubregion}}</span>
+          </p>
+          <p class="country-lang">Language:<span>{{countryLanguage}}</span></p>
+          <p class="country-cur">
+            Currency:<span>{{countryCurrency}}</span
+            ><span class="convert" @click="slideMe">convert</span>
+          </p>
+          <p class="country-cur">
+            Population:<span>{{countryPopulation}}</span>
+          </p>
+        </article>
+      </Transition>
     </div>
     <script src="./app.js"></script>
   </body>

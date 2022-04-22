@@ -2,6 +2,7 @@
 new Vue({
   el: ".vue-app",
   data: {
+    slide: false,
     show: false,
     countryRegion: null,
     countryName: null,
@@ -60,6 +61,9 @@ new Vue({
       } else if (value < 1000000000) {
         return (value / 1000000).toFixed(2) + " Milion";
       }
+    },
+    slideMe: function () {
+      this.slide = !this.slide;
     },
   },
 });
