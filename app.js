@@ -21,7 +21,7 @@ new Vue({
         .then((data) => {
           console.log(data[0]);
           this.renderCountry(data);
-          //   this.getStarted();
+          // this.getStarted();
         });
     },
     tryThis: function () {
@@ -30,8 +30,8 @@ new Vue({
         .then((data) => {
           console.log(data.country);
 
-          //   this.getCountryByCode(data.country);
-          this.getCountryByCode("RU");
+          this.getCountryByCode(data.country);
+          //   this.getCountryByCode("RU");
         });
     },
     renderCountry: function (dataObject) {
