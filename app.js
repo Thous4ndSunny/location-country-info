@@ -21,17 +21,17 @@ new Vue({
         .then((data) => {
           console.log(data[0]);
           this.renderCountry(data);
-          // this.getStarted();
+          this.getStarted();
         });
     },
     tryThis: function () {
       fetch(` https://api.country.is`)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data.country);
+          //   console.log(data.country);
 
           this.getCountryByCode(data.country);
-          //   this.getCountryByCode("RU");
+          //   this.getCountryByCode("GB");
         });
     },
     renderCountry: function (dataObject) {
@@ -42,6 +42,7 @@ new Vue({
       this.countrySubregion = data.subregion;
       this.countryLanguage = this.getLanguage(data.languages);
       this.countryCurrency = this.getCurrency(data.currencies);
+      this.countryPopulation = this.calcPopulation(data.population);
       console.log(data.region);
     },
 
@@ -52,6 +53,13 @@ new Vue({
     getCurrency: function (currencyObject) {
       return Object.keys(currencyObject)[0];
     },
-    calcPopulation: function (populationValue) {},
+    calcPopulation: function (populationValue) {
+      const value = Number(populationValue);
+      if (value < 1000000) {
+        return (value / 1000).toFixed(1) + " Thousand";
+      } else if (value < 1000000000) {
+        return (value / 1000000).toFixed(2) + " Milion";
+      }
+    },
   },
 });
