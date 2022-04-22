@@ -125,7 +125,7 @@ span {
 
   to {
     transform: translate(-300px, -200px) scale(0.2);
-    opacity: 0.2;
+    opacity: 0;
   }
 }
 .super {
